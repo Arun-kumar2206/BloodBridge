@@ -1,0 +1,445 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body{
+    height: 200vh;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.nav-bar{
+    background-color: #FF2828;
+    display: flex;
+    height: 70px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-left > img{
+    width: 50px;
+    margin-left: 20px;
+    margin-right: 10px;
+}
+
+.nav-left{
+    font-size: 10px;
+    font-weight: bolder;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.nav-right {
+    margin-right: 20px;
+}
+
+.nav-elements{
+    display: flex;
+    list-style: none;
+    gap: 25px;
+}
+
+.nav-elements li{
+    display: flex;
+    text-decoration: none;
+}
+
+.nav-elements a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.nav-elements a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.main-container {
+    background-image: url('../images/background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100vh; 
+}
+
+.main-container h1 {
+    margin: 0;
+    color: #1E3A5F;
+    font-size: 95px;
+    max-width: 300px;
+    padding: 20px;
+    margin-left: 50px;
+}
+
+.donate-request-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 100px 50px 100px 50px;
+}
+
+.donate-container, .request-container{
+    background-color: #D9D9D9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 20px;
+    width: 350px;
+    border-radius: 10px;
+
+}
+
+.donate-container > img, .request-container > img{
+    width: 100px;
+    padding: 15px;
+}
+
+.footer-component{
+    background-color: #222222;
+    color: #fff;
+    padding: 40px;
+    height: 300px;
+}
+
+.footer-left-container{
+    display: flex;
+}
+
+.footer-left-container > img{
+    width: 78px;
+}
+
+.footer-component {
+  background-color: #333;
+  color: white;
+  padding: 2rem 4rem;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 3rem;
+}
+
+.footer-left-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-right: 2rem;
+}
+
+.footer-left-container img {
+  width: 60px;
+  height: auto;
+}
+
+.footer-left-container h2 {
+  font-size: 1.8rem;
+  margin: 0;
+}
+
+.footer-right-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+}
+
+.footer-right-first, 
+.footer-right-second,
+.footer-right-third {
+  min-width: 150px;
+}
+
+.footer-right-container h2 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  color: #ff5555;
+}
+
+.footer-right-container p {
+  margin: 0.5rem 0;
+  font-size: 0.9rem;
+  color: #ddd;
+}
+
+.footer-right-container p:hover {
+  color: #ff5555;
+  cursor: pointer;
+}
+
+.footer-right-third img {
+  width: 30px;
+  height: 30px;
+  margin-right: 0.8rem;
+  margin-top: 0.5rem;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.footer-right-third img:hover {
+  transform: scale(1.2);
+}
+
+.blood-count-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    padding: 40px;
+    background-color: #f8f8f8;
+    margin: 20px auto;
+    max-width: 1200px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.blood-donors-register {
+    grid-column: 1 / -1;
+    background-color: #FF2828;
+    color: white;
+    text-align: center;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(255, 40, 40, 0.2);
+    margin-bottom: 20px;
+}
+
+.blood-donors-register h2:first-child {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+.blood-donors-register p {
+    font-size: 16px;
+    margin-top: 10px;
+    opacity: 0.9;
+}
+
+.blood-group-container {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.blood-group-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.blood-group-container h2:first-child {
+    font-size: 32px;
+    color: #FF2828;
+    margin-bottom: 5px;
+}
+
+.blood-group-container h2:last-child {
+    font-size: 24px;
+    color: #333;
+}
+
+.donation-quote {
+    text-align: center;
+    padding: 30px 0;
+    font-size: 28px;
+    color: #1E3A5F;
+    font-weight: 600;
+    position: relative;
+    margin: 40px 0 20px;
+}
+
+.donation-quote::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 3px;
+    background-color: #FF2828;
+    margin: 15px auto 0;
+}
+
+.blood-bank-img {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    padding: 0 40px 60px;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+.first-img, .second-img {
+    flex: 1;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.first-img:hover, .second-img:hover {
+    transform: scale(1.02);
+}
+
+.first-img img, .second-img img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 32px;
+    color: #1E3A5F;
+    margin: 40px 0 20px;
+    position: relative;
+    font-weight: 600;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 3px;
+    background-color: #FF2828;
+    margin: 15px auto 0;
+}
+
+.donation-cta {
+    background-color: #f8f8f8;
+    text-align: center;
+    padding: 50px 20px;
+    margin: 40px 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.donation-cta h2 {
+    font-size: 32px;
+    color: #1E3A5F;
+    margin-bottom: 15px;
+}
+
+.donation-cta p {
+    font-size: 18px;
+    margin-bottom: 30px;
+    color: #555;
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.button-primary, .button-secondary {
+    display: inline-block;
+    padding: 12px 30px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+.button-primary {
+    background-color: #FF2828;
+    color: white;
+    border: 2px solid #FF2828;
+}
+
+.button-primary:hover {
+    background-color: #e61e1e;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(255, 40, 40, 0.3);
+}
+
+.button-secondary {
+    background-color: transparent;
+    color: #1E3A5F;
+    border: 2px solid #1E3A5F;
+}
+
+.button-secondary:hover {
+    background-color: #1E3A5F;
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(30, 58, 95, 0.3);
+}
+
+.faq-section {
+    max-width: 1000px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.faq-container {
+    margin-top: 30px;
+}
+
+.faq-item {
+    background-color: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.faq-item summary {
+    padding: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    position: relative;
+    outline: none;
+    font-size: 18px;
+    color: #1E3A5F;
+}
+
+.faq-item summary::-webkit-details-marker {
+    display: none;
+}
+
+.faq-item summary::after {
+    content: '+';
+    position: absolute;
+    right: 20px;
+    font-size: 22px;
+    transition: transform 0.3s ease;
+}
+
+.faq-item[open] summary::after {
+    content: '−';
+    transform: rotate(180deg);
+}
+
+.faq-item p {
+    padding: 0 20px 20px;
+    margin: 0;
+    color: #555;
+    line-height: 1.6;
+}
