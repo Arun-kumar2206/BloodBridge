@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blood Request Form</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        margin: 0;
+        padding: 0;
+      }
+
+      .nav-bar {
+        background-color: #ff2828;
+        display: flex;
+        height: 70px;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
+
+      .nav-left > img {
+        width: 50px;
+        margin-left: 20px;
+        margin-right: 10px;
+      }
+
+      .nav-left {
+        font-size: 10px;
+        font-weight: bolder;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+      }
+
+      .nav-right {
+        margin-right: 20px;
+      }
+
+      .nav-elements {
+        display: flex;
+        list-style: none;
+        gap: 25px;
+      }
+
+      .nav-elements li {
+        display: flex;
+        text-decoration: none;
+      }
+
+      .nav-elements a {
+        color: white;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 16px;
+        padding: 8px 12px;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+      }
+
+      .nav-elements a:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+      }
+      .container {
+        background-color: #fff;
+        padding: 40px;
+        width: 80%;
+        margin: 40px auto;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      }
+      .header-blood-request {
+        text-align: center;
+        color: #666;
+      }
+      .form-section {
+        display: flex;
+        justify-content: space-between;
+      }
+      .form-group {
+        width: 45%;
+      }
+      .form-group label {
+        display: block;
+        margin-top: 10px;
+        font-weight: bold;
+      }
+      .form-group input,
+      .form-group select {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+      }
+      .submit-button {
+        background-color: #ff3b3f;
+        color: #fff;
+        border: none;
+        padding: 12px;
+        display: block;
+        width: 200px;
+        text-align: center;
+        border-radius: 4px;
+        cursor: pointer;
+        margin: 20px auto;
+        border-radius: 10px;
+      }
+      .submit-button:active {
+        background-color: #e03135;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="nav-bar">
+      <div class="nav-left">
+        <img src="../images/webicon.png" alt="WEBSITE ICON" />
+        <h1>BLOOD BRIDGE</h1>
+      </div>
+      <div class="nav-right">
+        <ul class="nav-elements">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="./blood-bank.html">Blood bank</a></li>
+          <li><a href="#">Events</a></li>
+          <li><a href="#">News</a></li>
+          <li><a href="../index.html#about">About</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container">
+      <h1 class="header-blood-request">Request for Blood</h1>
+      <form onsubmit="return validateForm()">
+        <div class="form-section">
+          <div class="form-group">
+            <label>Patient Name</label>
+            <input type="text" placeholder="Enter patient name" required />
+            <label>Doctor Name</label>
+            <input type="text" placeholder="Enter doctor name" required />
+            <label>Blood Group</label>
+            <select required>
+              <option value="">Select Blood Group</option>
+              <option value="A+">A+</option>
+              <option value="A-">A-</option>
+              <option value="B+">B+</option>
+              <option value="B-">B-</option>
+              <option value="AB+">AB+</option>
+              <option value="AB-">AB-</option>
+              <option value="O+">O+</option>
+              <option value="O-">O-</option>
+            </select>
+            <label>State</label>
+            <input type="text" placeholder="Enter state" required />
+            <label>District</label>
+            <input type="text" placeholder="Enter district" required />
+            <label>Hospital Name</label>
+            <input type="text" placeholder="Enter hospital name" required />
+          </div>
+          <div class="form-group">
+            <label>Contact Name</label>
+            <input type="text" placeholder="Enter contact name" required />
+            <label>Mobile No.</label>
+            <input type="tel" placeholder="Enter mobile number" required />
+            <label>Email</label>
+            <input type="email" placeholder="Enter email" required />
+          </div>
+        </div>
+        <button type="submit" class="submit-button">SEND REQUEST</button>
+      </form>
+    </div>
+  </body>
+</html>
