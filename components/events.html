@@ -1,136 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Blood Bridge Events</title>
     <style>
-        .nav-bar {
-            background-color: #ff2828;
-            display: flex;
-            height: 70px;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 20px;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        .nav-left > img {
-            width: 50px;
-            margin-left: 20px;
-            margin-right: 10px;
-        }
-        .nav-left {
-            font-size: 18px;
-            font-weight: bolder;
-            color: #fff;
-            display: flex;
-            align-items: center;
-            cursor: pointer;
-        }
-        .nav-right {
-            margin-right: 20px;
-        }
-        .nav-elements {
-            display: flex;
-            list-style: none;
-            gap: 25px;
-            margin: 0;
-            padding: 0;
-        }
-        .nav-elements li {
-            list-style: none;
-        }
-        .nav-elements a {
-            color: white;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 16px;
-            padding: 8px 12px;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-            display: block;
-        }
-        .nav-elements a:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-        }
-        .body {
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
-    margin: 0;
-    padding: 0;
-    width: 100vw;
-    height: 100vh;
-    align-items: center;
-}
+      body {
+        margin: 0;
+      }
+      .nav-bar {
+        background-color: #ff2828;
+        display: flex;
+        height: 70px;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
+      .nav-left > img {
+        width: 50px;
+        margin-left: 20px;
+        margin-right: 10px;
+      }
+      .nav-left {
+        font-size: 18px;
+        font-weight: bolder;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+      }
+      .nav-right {
+        margin-right: 20px;
+      }
+      .nav-elements {
+        display: flex;
+        list-style: none;
+        gap: 25px;
+        margin: 0;
+        padding: 0;
+      }
+      .nav-elements li {
+        list-style: none;
+      }
+      .nav-elements a {
+        color: white;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 16px;
+        padding: 8px 12px;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+        display: block;
+      }
+      .nav-elements a:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+      }
+      .body {
+        background-color: #f9f9f9;
+        margin: 0;
+        padding: 0;
+        width: 100vw;
+        height: 100vh;
+        align-items: center;
+      }
 
-.container {
-    background-color: #ffffff;
-    padding: 20px;
-    height: 100%;
-    border-radius: 0;
-    overflow-y: auto;
-    margin-bottom: 30px;
-}
+      .container {
+        background-color: #ffffff;
+        padding: 20px;
+        height: 100%;
+        border-radius: 0;
+        overflow-y: auto;
+        margin-bottom: 30px;
+      }
 
-h1 {
-    color: #000;
-    font-size: 24px;
-    margin-bottom: 20px;
-    border-bottom: 2px solid #ddd;
-    padding-bottom: 10px;
-}
-.event-box {
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    padding: 15px; 
-    width: 800px; 
-    margin: 10px auto; 
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
-}
-
-
+      h1 {
+        color: #000;
+        font-size: 24px;
+        margin-bottom: 20px;
+        border-bottom: 2px solid #ddd;
+        padding-bottom: 10px;
+      }
+      .event-box {
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+        padding: 15px;
+        width: 800px;
+        margin: 10px auto;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin-top: 20px;
+      }
     </style>
-</head>
-<body>
-<nav class="nav-bar">
-    <div class="nav-left">
+  </head>
+  <body>
+    <nav class="nav-bar">
+      <div class="nav-left">
         <img src="../images/webicon.png" alt="WEBSITE ICON" />
         <span>BLOOD BRIDGE</span>
-    </div>
-    <div class="nav-right">
+      </div>
+      <div class="nav-right">
         <ul class="nav-elements">
-            <li><a href="../index.html">Home</a></li>
-            <li><a href="./blood-bank.html">Blood bank</a></li>
-            <li><a href="./events.html">Events</a></li>
-            <li><a href="news.html">News</a></li>
-            <li><a href="../index.html#about">About</a></li>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="./blood-bank.html">Blood bank</a></li>
+          <li><a href="./events.html">Events</a></li>
+          <li><a href="./news.html">News</a></li>
+          <li><a href="../index.html#about">About</a></li>
         </ul>
+      </div>
+    </nav>
+    <div class="body">
+      <div class="container">
+        <h1>Events</h1>
+        <div class="event-box highlight">
+          <marquee scrollamount="10"
+            ><a href="./event1.html">
+              Join us for a Blood Donation Camp at <strong>jntucep</strong> on
+              <strong>25-3-2025</strong>, start at <strong>10:00 am</strong> in
+              <strong>Pulivendula</strong> — your donation can save lives!</a
+            ></marquee
+          >
+        </div>
+
+        <div class="event-box">
+          <marquee scrollamount="8">
+            <a href="./event3.html">
+              Join us for a Blood Donation Camp in
+              <strong>Kavali, Nellore District, Andhra Pradesh</strong> on
+              <strong>March 29, 2025</strong>, from
+              <strong>10:00 AM to 3:00 PM</strong> at
+              <strong>Kavali Community Hall</strong>.
+            </a></marquee
+          >
+        </div>
+
+        <div class="event-box">
+          <marquee scrollamount="6">
+            <a href="./event2.html">
+              Join us on <strong> March 20, 2025</strong>, from
+              <strong>10:00 AM to 4:00 PM</strong> at
+              <strong>KIMS Hospital, Ongole</strong> — your donation can save
+              lives!
+            </a></marquee
+          >
+        </div>
+      </div>
     </div>
-</nav>
-<div class="body">
-<div class="container">
-    <h1>Events</h1>
-    <div class="event-box highlight">
-     <marquee scrollamount="10"><a href="./event1.html">  Join us for a Blood Donation Camp at <strong>jntucep</strong> on <strong>25-3-2025</strong>, start at <strong>10:00 am</strong> in <strong>Pulivendula</strong> — your donation can save lives!</a></marquee>
-    </div>
-    
-    <div class="event-box">
-        <marquee scrollamount="8"> <a href="./event3.html">
-        Join us for a Blood Donation Camp in <strong>Kavali, Nellore District, Andhra Pradesh</strong> on <strong>March 29, 2025</strong>, from <strong>10:00 AM to 3:00 PM</strong> at <strong>Kavali Community Hall</strong>.
-    
-    </a></marquee>
-</div>
-    
-    <div class="event-box">
-        <marquee scrollamount="6">  <a href="./event2.html">
-        Join us on <strong> March 20, 2025</strong>, from <strong>10:00 AM to 4:00 PM</strong> at <strong>KIMS Hospital, Ongole</strong> — your donation can save lives!
-    </a></marquee>
-</div>
-</div>
-</div>
-</body>
+  </body>
 </html>
