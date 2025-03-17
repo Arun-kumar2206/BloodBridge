@@ -214,7 +214,7 @@
 
     <div class="form-container">
       <h2>Blood Donor Form</h2>
-      <form>
+      <form id="donorForm">
         <label>Full Name:</label>
         <input type="text" placeholder="Enter your full name" required />
 
@@ -253,5 +253,21 @@
         <button type="submit">SUBMIT</button>
       </form>
     </div>
+    <script>
+      document
+        .getElementById("donorForm")
+        .addEventListener("submit", async (e) => {
+          e.preventDefault();
+          const formData = new FormData(e.target);
+          const data = Object.fromEntries(formData.entries());
+          const response = await fetch("http://localhost:3000/donate", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data),
+          });
+          const result = await response.json();
+          alert(result.message);
+        });
+    </script>
   </body>
 </html>
