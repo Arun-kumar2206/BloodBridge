@@ -27,40 +27,40 @@
       <h2 class="section-title">Current Blood Inventory</h2>
       <div class="blood-count-container">
         <div class="blood-donors-register">
-          <h2>737</h2>
+          <h2 id="total-donors">0</h2>
           <h2>DONORS</h2>
           <p>Registered in our database</p>
         </div>
         <div class="blood-group-container">
-          <h2>120</h2>
+          <h2 id="A-positive">0</h2>
           <h2>A+</h2>
         </div>
         <div class="blood-group-container">
-          <h2>95</h2>
+          <h2 id="A-negative">0</h2>
           <h2>A-</h2>
         </div>
         <div class="blood-group-container">
-          <h2>150</h2>
+          <h2 id="B-positive">0</h2>
           <h2>B+</h2>
         </div>
         <div class="blood-group-container">
-          <h2>80</h2>
+          <h2 id="B-negative">0</h2>
           <h2>B-</h2>
         </div>
         <div class="blood-group-container">
-          <h2>200</h2>
+          <h2 id="O-positive">0</h2>
           <h2>O+</h2>
         </div>
         <div class="blood-group-container">
-          <h2>60</h2>
+          <h2 id="O-negative">0</h2>
           <h2>O-</h2>
         </div>
         <div class="blood-group-container">
-          <h2>138</h2>
+          <h2 id="AB-positive">0</h2>
           <h2>AB+</h2>
         </div>
         <div class="blood-group-container">
-          <h2>50</h2>
+          <h2 id="AB-negative">0</h2>
           <h2>AB-</h2>
         </div>
       </div>
@@ -151,5 +151,38 @@
         </div>
       </div>
     </footer>
+    <script>
+      async function fetchDonorData() {
+        try {
+          const response = await fetch("http://localhost:3000/donors");
+          const donors = await response.json();
+          const bloodGroups = {
+            "A+": 0,
+            "A-": 0,
+            "B+": 0,
+            "B-": 0,
+            "O+": 0,
+            "O-": 0,
+            "AB+": 0,
+            "AB-": 0,
+          };
+          donors.forEach((donor) => {
+            bloodGroups[donor.bloodGroup]++;
+          });
+          document.getElementById("total-donors").innerText = donors.length;
+          document.getElementById("A-positive").innerText = bloodGroups["A+"];
+          document.getElementById("A-negative").innerText = bloodGroups["A-"];
+          document.getElementById("B-positive").innerText = bloodGroups["B+"];
+          document.getElementById("B-negative").innerText = bloodGroups["B-"];
+          document.getElementById("O-positive").innerText = bloodGroups["O+"];
+          document.getElementById("O-negative").innerText = bloodGroups["O-"];
+          document.getElementById("AB-positive").innerText = bloodGroups["AB+"];
+          document.getElementById("AB-negative").innerText = bloodGroups["AB-"];
+        } catch (error) {
+          console.error("Error fetching donor data:", error);
+        }
+      }
+      fetchDonorData();
+    </script>
   </body>
 </html>

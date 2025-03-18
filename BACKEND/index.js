@@ -14,6 +14,7 @@ const Donor = mongoose.model('Donor', new mongoose.Schema({
   dateOfBirth: String,
   gender: String,
   bloodGroup: String,
+  email: String,
   mobileNumber: String,
   state: String,
   district: String,
@@ -43,8 +44,27 @@ app.get('/', (req, res) => {
   res.send('Welcome to the Blood Bridge API');
 });
 
+// Validation function for email
+function isValidEmail(email) {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+}
+
+// Validation function for mobile number
+function isValidMobileNumber(mobileNumber) {
+  const mobileRegex = /^[0-9]{10}$/;
+  return mobileRegex.test(mobileNumber);
+}
+
 app.post('/donate', async (req, res) => {
   try {
+    const { email, mobileNumber } = req.body;
+    if (!isValidEmail(email)) {
+      return res.status(400).send({ message: 'Invalid email format' });
+    }
+    if (!isValidMobileNumber(mobileNumber)) {
+      return res.status(400).send({ message: 'Invalid mobile number format' });
+    }
     const donor = new Donor(req.body);
     await donor.save();
     res.send({ message: 'Donor information saved successfully' });
@@ -55,6 +75,13 @@ app.post('/donate', async (req, res) => {
 
 app.post('/request', async (req, res) => {
   try {
+    const { email, mobileNumber } = req.body;
+    if (!isValidEmail(email)) {
+      return res.status(400).send({ message: 'Invalid email format' });
+    }
+    if (!isValidMobileNumber(mobileNumber)) {
+      return res.status(400).send({ message: 'Invalid mobile number format' });
+    }
     const request = new Request(req.body);
     await request.save();
     
@@ -75,7 +102,6 @@ app.get('/donors', async (req, res) => {
     res.status(500).send({ message: 'Error fetching donors', error });
   }
 });
-
 
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);

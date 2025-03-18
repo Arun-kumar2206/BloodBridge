@@ -251,11 +251,20 @@
           <option value="O-">O-</option>
         </select>
 
+        <label>Email:</label>
+        <input
+          type="email"
+          name="email"
+          placeholder="Enter your email"
+          required
+        />
+
         <label>Mobile Number:</label>
         <input
           type="tel"
           name="mobileNumber"
           placeholder="Enter your mobile number"
+          pattern="[0-9]{10}"
           required
         />
 
