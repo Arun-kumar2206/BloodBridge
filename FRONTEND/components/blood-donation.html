@@ -216,20 +216,30 @@
       <h2>Blood Donor Form</h2>
       <form id="donorForm">
         <label>Full Name:</label>
-        <input type="text" placeholder="Enter your full name" required />
+        <input
+          type="text"
+          name="fullName"
+          placeholder="Enter your full name"
+          required
+        />
 
         <label>Date Of Birth:</label>
-        <input type="text" placeholder="DD/MM/YYYY" required />
+        <input
+          type="text"
+          name="dateOfBirth"
+          placeholder="DD/MM/YYYY"
+          required
+        />
 
         <label>Gender:</label>
         <div class="gender-options">
-          <input type="radio" name="gender" /> Male
-          <input type="radio" name="gender" /> Female
-          <input type="radio" name="gender" /> Others
+          <input type="radio" name="gender" value="Male" required /> Male
+          <input type="radio" name="gender" value="Female" required /> Female
+          <input type="radio" name="gender" value="Others" required /> Others
         </div>
 
         <label>Blood Group:</label>
-        <select required>
+        <select name="bloodGroup" required>
           <option value="">Select your blood group</option>
           <option value="A+">A+</option>
           <option value="A-">A-</option>
@@ -242,13 +252,28 @@
         </select>
 
         <label>Mobile Number:</label>
-        <input type="tel" placeholder="Enter your mobile number" required />
+        <input
+          type="tel"
+          name="mobileNumber"
+          placeholder="Enter your mobile number"
+          required
+        />
 
         <label>State:</label>
-        <input type="text" placeholder="Enter your state" required />
+        <input
+          type="text"
+          name="state"
+          placeholder="Enter your state"
+          required
+        />
 
         <label>District:</label>
-        <input type="text" placeholder="Enter your district" required />
+        <input
+          type="text"
+          name="district"
+          placeholder="Enter your district"
+          required
+        />
 
         <button type="submit">SUBMIT</button>
       </form>

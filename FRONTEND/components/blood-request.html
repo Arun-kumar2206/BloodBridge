@@ -118,6 +118,20 @@
       .submit-button:active {
         background-color: #e03135;
       }
+      .donors-list {
+        margin-top: 20px;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      }
+      .donor-item {
+        border-bottom: 1px solid #ccc;
+        padding: 10px 0;
+      }
+      .donor-item:last-child {
+        border-bottom: none;
+      }
     </style>
   </head>
   <body>
@@ -138,15 +152,25 @@
     </nav>
     <div class="container">
       <h1 class="header-blood-request">Request for Blood</h1>
-      <form onsubmit="return validateForm()">
+      <form id="requestForm">
         <div class="form-section">
           <div class="form-group">
             <label>Patient Name</label>
-            <input type="text" placeholder="Enter patient name" required />
+            <input
+              type="text"
+              name="patientName"
+              placeholder="Enter patient name"
+              required
+            />
             <label>Doctor Name</label>
-            <input type="text" placeholder="Enter doctor name" required />
+            <input
+              type="text"
+              name="doctorName"
+              placeholder="Enter doctor name"
+              required
+            />
             <label>Blood Group</label>
-            <select required>
+            <select name="bloodGroup" required>
               <option value="">Select Blood Group</option>
               <option value="A+">A+</option>
               <option value="A-">A-</option>
@@ -158,23 +182,94 @@
               <option value="O-">O-</option>
             </select>
             <label>State</label>
-            <input type="text" placeholder="Enter state" required />
+            <input
+              type="text"
+              name="state"
+              placeholder="Enter state"
+              required
+            />
             <label>District</label>
-            <input type="text" placeholder="Enter district" required />
+            <input
+              type="text"
+              name="district"
+              placeholder="Enter district"
+              required
+            />
             <label>Hospital Name</label>
-            <input type="text" placeholder="Enter hospital name" required />
+            <input
+              type="text"
+              name="hospitalName"
+              placeholder="Enter hospital name"
+              required
+            />
           </div>
           <div class="form-group">
             <label>Contact Name</label>
-            <input type="text" placeholder="Enter contact name" required />
+            <input
+              type="text"
+              name="contactName"
+              placeholder="Enter contact name"
+              required
+            />
             <label>Mobile No.</label>
-            <input type="tel" placeholder="Enter mobile number" required />
+            <input
+              type="tel"
+              name="mobileNumber"
+              placeholder="Enter mobile number"
+              required
+            />
             <label>Email</label>
-            <input type="email" placeholder="Enter email" required />
+            <input
+              type="email"
+              name="email"
+              placeholder="Enter email"
+              required
+            />
           </div>
         </div>
         <button type="submit" class="submit-button">SEND REQUEST</button>
       </form>
+      <div id="donorsList" class="donors-list" style="display: none">
+        <h2>Matching Donors</h2>
+        <div id="donorsContainer"></div>
+      </div>
     </div>
+    <script>
+      document
+        .getElementById("requestForm")
+        .addEventListener("submit", async (e) => {
+          e.preventDefault();
+          const formData = new FormData(e.target);
+          const data = Object.fromEntries(formData.entries());
+          const response = await fetch("http://localhost:3000/request", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data),
+          });
+          const result = await response.json();
+          alert(result.message);
+
+          if (result.matchingDonors && result.matchingDonors.length > 0) {
+            const donorsList = document.getElementById("donorsList");
+            const donorsContainer = document.getElementById("donorsContainer");
+            donorsContainer.innerHTML = "";
+            result.matchingDonors.forEach((donor) => {
+              const donorItem = document.createElement("div");
+              donorItem.className = "donor-item";
+              donorItem.innerHTML = `
+                <p><strong>Name:</strong> ${donor.fullName}</p>
+                <p><strong>Blood Group:</strong> ${donor.bloodGroup}</p>
+                <p><strong>State:</strong> ${donor.state}</p>
+                <p><strong>District:</strong> ${donor.district}</p>
+                <p><strong>Mobile Number:</strong> ${donor.mobileNumber}</p>
+              `;
+              donorsContainer.appendChild(donorItem);
+            });
+            donorsList.style.display = "block";
+          } else {
+            alert("No matching donors found.");
+          }
+        });
+    </script>
   </body>
 </html>
