@@ -132,6 +132,50 @@
       .donor-item:last-child {
         border-bottom: none;
       }
+      .popup {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        z-index: 1001;
+        text-align: center;
+        width: 300px;
+      }
+      .popup h2 {
+        margin: 0 0 10px;
+        font-size: 18px;
+        color: #333;
+      }
+      .popup p {
+        margin: 0 0 20px;
+        color: #666;
+      }
+      .popup button {
+        background-color: #ff3b3f;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      .popup button:active {
+        background-color: #e03135;
+      }
+      .popup-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 1000;
+      }
     </style>
   </head>
   <body>
@@ -144,7 +188,7 @@
         <ul class="nav-elements">
           <li><a href="../index.html">Home</a></li>
           <li><a href="./blood-bank.html">Blood bank</a></li>
-          <li><a href="./events.html">Events</a></li>
+          <li><a href="./events.html">Camps</a></li>
           <li><a href="./news.html">News</a></li>
           <li><a href="../index.html#about">About</a></li>
         </ul>
@@ -235,7 +279,25 @@
         <div id="donorsContainer"></div>
       </div>
     </div>
+    <div class="popup-overlay" id="popupOverlay"></div>
+    <div class="popup" id="popup">
+      <h2 id="popupTitle"></h2>
+      <p id="popupMessage"></p>
+      <button onclick="closePopup()">Close</button>
+    </div>
     <script>
+      function showPopup(title, message) {
+        document.getElementById("popupTitle").textContent = title;
+        document.getElementById("popupMessage").textContent = message;
+        document.getElementById("popupOverlay").style.display = "block";
+        document.getElementById("popup").style.display = "block";
+      }
+
+      function closePopup() {
+        document.getElementById("popupOverlay").style.display = "none";
+        document.getElementById("popup").style.display = "none";
+      }
+
       document
         .getElementById("requestForm")
         .addEventListener("submit", async (e) => {
@@ -248,7 +310,8 @@
             body: JSON.stringify(data),
           });
           const result = await response.json();
-          alert(result.message);
+
+          showPopup("Request Status", result.message);
 
           if (result.matchingDonors && result.matchingDonors.length > 0) {
             const donorsList = document.getElementById("donorsList");
@@ -268,7 +331,7 @@
             });
             donorsList.style.display = "block";
           } else {
-            alert("No matching donors found.");
+            showPopup("No Donors Found", "No matching donors found.");
           }
         });
     </script>
