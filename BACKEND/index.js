@@ -18,6 +18,7 @@ const Donor = mongoose.model('Donor', new mongoose.Schema({
   mobileNumber: String,
   state: String,
   district: String,
+  donationDate: { type: Date, default: Date.now }
 }));
 
 const Request = mongoose.model('Request', new mongoose.Schema({
@@ -65,7 +66,11 @@ app.post('/donate', async (req, res) => {
     if (!isValidMobileNumber(mobileNumber)) {
       return res.status(400).send({ message: 'Invalid mobile number format' });
     }
-    const donor = new Donor(req.body);
+    const donorData = {
+      ...req.body,
+      donationDate: new Date()
+    };
+    const donor = new Donor(donorData);
     await donor.save();
     res.send({ message: 'Donor information saved successfully' });
   } catch (error) {
@@ -88,7 +93,19 @@ app.post('/request', async (req, res) => {
     const { bloodGroup, state } = req.body;
     const matchingDonors = await Donor.find({ bloodGroup, state });
     
-    res.send({ message: 'Request information saved successfully', matchingDonors });
+    const donorsWithExpiry = matchingDonors.map(donor => {
+      const donationDate = new Date(donor.donationDate);
+      const expiryDate = new Date(donationDate);
+      expiryDate.setDate(expiryDate.getDate() + 42);
+      
+      return {
+        ...donor.toObject(),
+        donationDate: donationDate.toLocaleDateString(),
+        expiryDate: expiryDate.toLocaleDateString()
+      };
+    });
+    
+    res.send({ message: 'Request information saved successfully', matchingDonors: donorsWithExpiry });
   } catch (error) {
     res.status(500).send({ message: 'Error saving request information', error });
   }
